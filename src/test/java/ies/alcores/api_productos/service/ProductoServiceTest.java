@@ -70,6 +70,21 @@ public class ProductoServiceTest {
 
     }
 
+    @Test
+    void test_delete(){
+
+        //Given
+        final Producto p1 = this.createProducto();
+
+        //When
+        when(this.productoRepository.save(p1)).thenReturn(p1);
+        this.productoService.delete(p1.getCodBarras());
+
+        //Then
+        verify(this.productoRepository).deleteById(p1.getCodBarras());
+
+    }
+
     private Producto createProducto(){
         Producto p1 = new Producto();
         p1.setCodBarras("TEST_0123");
