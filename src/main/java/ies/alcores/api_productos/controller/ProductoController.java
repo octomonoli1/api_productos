@@ -3,18 +3,17 @@ package ies.alcores.api_productos.controller;
 import ies.alcores.api_productos.model.Producto;
 import ies.alcores.api_productos.service.ProductoService;
 import jakarta.validation.Valid;
-import org.apache.coyote.Response;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/productos")
 public class ProductoController {
 
-    @Autowired
     private ProductoService productoService;
 
     @GetMapping

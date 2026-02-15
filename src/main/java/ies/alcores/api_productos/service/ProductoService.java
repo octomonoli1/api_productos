@@ -1,16 +1,16 @@
 package ies.alcores.api_productos.service;
 import ies.alcores.api_productos.model.Producto;
 import ies.alcores.api_productos.repository.ProductoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ProductoService {
 
-    @Autowired
     private ProductoRepository productoRepository;
 
     public List<Producto> findAll(){
