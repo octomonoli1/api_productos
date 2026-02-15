@@ -21,7 +21,11 @@ public class ProductoService {
         return this.productoRepository.findById(codBarras);
     }
 
-    public Producto save(Producto producto){
+    public Producto save(final Producto producto){
         return this.productoRepository.save(producto);
+    }
+
+    public void delete(final String codBarras){
+        this.productoRepository.deleteById(codBarras);
     }
 }

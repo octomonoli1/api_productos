@@ -3,6 +3,7 @@ package ies.alcores.api_productos.controller;
 import ies.alcores.api_productos.model.Producto;
 import ies.alcores.api_productos.service.ProductoService;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,5 +32,11 @@ public class ProductoController {
     @PostMapping("/add")
     private ResponseEntity<Producto> craete(@Valid @RequestBody Producto producto){
         return ResponseEntity.ok(this.productoService.save((producto)));
+    }
+
+    @DeleteMapping("/delete/{codBarras}")
+    private ResponseEntity<Void> delete(@PathVariable final String codBarras){
+        this.productoService.delete(codBarras);
+        return ResponseEntity.noContent().build();
     }
 }
