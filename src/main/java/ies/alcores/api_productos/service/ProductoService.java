@@ -20,4 +20,8 @@ public class ProductoService {
     public Optional<Producto> findByCodigoBarras(final String codBarras){
         return this.productoRepository.findById(codBarras);
     }
+
+    public Producto save(Producto producto){
+        return this.productoRepository.save(producto);
+    }
 }

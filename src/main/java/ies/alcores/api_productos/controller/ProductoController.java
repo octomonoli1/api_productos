@@ -2,12 +2,10 @@ package ies.alcores.api_productos.controller;
 
 import ies.alcores.api_productos.model.Producto;
 import ies.alcores.api_productos.service.ProductoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,10 @@ public class ProductoController {
         return this.productoService.findByCodigoBarras(codBarras)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping("/add")
+    private ResponseEntity<Producto> craete(@Valid @RequestBody Producto producto){
+        return ResponseEntity.ok(this.productoService.save((producto)));
     }
 }
