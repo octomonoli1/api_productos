@@ -18,6 +18,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    env:
+      SPRING_PROFILES_ACTIVE: pro
+
     steps:
     - uses: actions/checkout@v4
     - name: Set up JDK 17
@@ -26,5 +29,15 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
+    - name: Build with Maven
+      run: mvn -B clean package -DskipTests
+
     - name: Test
       run: mvn -B test
+
+    - name: Deploy to Railway
+      run: |
+        curl -sSL https://cli.railway.app/install.sh | sh
+        railway login --ci d7de61ba-f001-4ab7-891b-f37afe68b517
+        railway up --environment production
