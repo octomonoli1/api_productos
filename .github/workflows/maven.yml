@@ -32,3 +32,14 @@ jobs:
 
     - name: Test
       run: mvn -B test
+
+    - name: Build JAR
+      run: mvn clean package -DskipTests
+
+    - name: Install Railway CLI
+      run: npm install -g @railway/cli
+
+    - name: Deploy
+      run: railway up --service spring-app
+      env:
+        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
