@@ -4,11 +4,12 @@ import ies.alcores.api_productos.model.Producto;
 import ies.alcores.api_productos.repository.ProductoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class ProductoServiceTest {
 

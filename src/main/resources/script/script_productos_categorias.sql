@@ -2,25 +2,25 @@ DROP DATABASE IF EXISTS productos;
 CREATE DATABASE productos;
 USE productos;
 
-CREATE TABLE Categoria(
+CREATE TABLE categoria(
 	id BIGINT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE Producto(
+CREATE TABLE producto(
 	cod_barras CHAR(13) PRIMARY KEY,
     marca VARCHAR(255),
     modelo VARCHAR(255),
     precio DECIMAL(16,2),
     cantidad INT,
     categoria_id BIGINT,
-    CONSTRAINT fk_producto FOREIGN KEY (categoria_id) REFERENCES Categoria(id)
+    CONSTRAINT fk_producto FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
-INSERT INTO Categoria (nombre) VALUES 
+INSERT INTO categoria (nombre) VALUES
 	('Jardín'), ('Descanso'), ('Cocina'), ('Deportes'), ('Juguetes'),('Alimentación');
 
-INSERT INTO Producto (cod_barras, marca, modelo, precio, cantidad, categoria_id) VALUES
+INSERT INTO producto (cod_barras, marca, modelo, precio, cantidad, categoria_id) VALUES
 ('8430010000011','Gardena','Cortacesped 300',189.99,12,1),
 ('8430010000012','Bosch','Desbrozadora X45',129.50,8,1),
 ('8430010000013','Keter','Caseta Jardin StoreIt',459.00,3,1),
