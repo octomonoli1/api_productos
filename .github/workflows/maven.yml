@@ -42,4 +42,4 @@ jobs:
     - name: Deploy
       run: railway up --service spring-app
       env:
-        RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
