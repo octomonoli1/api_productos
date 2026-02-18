@@ -1,7 +1,4 @@
 spring:
-  config:
-    activate:
-      on-profile: pro
   application:
     name: api_productos
 
