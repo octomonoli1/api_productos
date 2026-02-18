@@ -6,7 +6,7 @@ spring:
     name: api_productos
 
   datasource:
-    url: jdbc:mysql://mysql.railway.internal:3306/railway
+    url: jdbc:mysql://mysql.railway.internal:3306/railway?useSSL=false&serverTimezone=UTC
     username: root
     password: vlekUzMExjTxetLSqNKNbmCWldkIMfOt
     driver-class-name: com.mysql.cj.jdbc.Driver
