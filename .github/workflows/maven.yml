@@ -33,7 +33,7 @@ jobs:
     - name: Testing
       run: mvn -B test
 
-    - name: Build JARR
+    - name: Build JAR
       run: mvn clean package -DskipTests
 
     - name: Install Railway CLI
