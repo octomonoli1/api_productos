@@ -30,14 +30,16 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Build with Maven
-      run: mvn -B clean package -DskipTests
-
-    - name: Test
+    - name: Testing
       run: mvn -B test
 
-    - name: Deploy to Railway
-      run: |
-        curl -sSL https://cli.railway.app/install.sh | sh
-        railway login --ci d7de61ba-f001-4ab7-891b-f37afe68b517
-        railway up --environment production
+    - name: Build JAR
+      run: mvn clean package -DskipTests
+
+    - name: Install Railway CLI
+      run: npm install -g @railway/cli
+
+    - name: Deploy
+      run: railway up --project ${{secrets.RAILWAY_PROJECT_ID}} --environment production --service api_productos
+      env:
+        RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
