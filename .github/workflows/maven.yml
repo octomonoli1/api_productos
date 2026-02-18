@@ -30,7 +30,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    - name: Test
+    - name: Testing
       run: mvn -B test
 
     - name: Build JAR
