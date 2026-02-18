@@ -40,6 +40,6 @@ jobs:
       run: npm install -g @railway/cli
 
     - name: Deploy
-      run: railway up
+      run: railway uprailway up --project ${{secrets.RAILWAY_PROJECT_ID}} --environment production --service api_productos
       env:
         RAILWAY_TOKEN: ${{secrets.RAILWAY_TOKEN}}
